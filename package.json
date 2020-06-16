@@ -1,0 +1,22 @@
+{
+  "name": "scaffolder",
+  "version": "1.0.0",
+  "description": "simple scaffolder",
+  "main": "scaffold.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/5cr009e/FrontEnd.git"
+  },
+  "author": "Linjun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/5cr009e/FrontEnd/issues"
+  },
+  "homepage": "https://github.com/5cr009e/FrontEnd#readme",
+  "dependencies": {
+    "yargs": "^15.1.0"
+  }
+}
