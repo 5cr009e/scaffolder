@@ -2,5 +2,5 @@
 Simple Code generAtor For FOLDER based project
 ## usage
 ```bash
-node scaffolder root . template default
+node scaffolder -d . -t default
 ```

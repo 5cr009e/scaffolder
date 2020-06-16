@@ -30,34 +30,31 @@ function createFile(root_dir, tempalte_root, fname){
     });
 }
 
-// function load_json(file){
-//     
-//     return obj
-// }
-
-
 function main(){
     const config = require(path.join(__dirname, "config.json"));
     var argv = require('yargs')
-        .default('template', () => {
-            return "default";
-        })
-        .default('root', () => {
-            return ".";
-        })
-        .argv
+    .option('template',{
+        alias: 't',
+        describe:'Tempalte name',
+        default: 'default'       
+    })
+    .option('dir',{
+        alias: 'd',
+        describe:'Project Directory',
+        default: '.'       
+    })
+    .help()
+    .argv
 
     if(config[argv.template] === undefined){
         console.log(`Loading template error: no such template name.\nAvailable names:\n\n${Object.keys(config)}\n`);
         process.exit()
     }
     console.log(`Trying to initialize with template ${argv.template}...\nDescription:\n${config[argv.template].description}\n`);
-    let root_dir = argv.root;
+    let root_dir = argv.dir;
     createDir(root_dir);
-    let dirs = ["css", "img", "js"]
-    dirs.forEach(dir => createDir(path.join(root_dir ,dir)))
-    let files = ["index.html", "css/style.css", "js/index.js"]
-    files.forEach(fname => createFile(root_dir, config[argv.template].template_root, fname))
+    config[argv.template].dirs.forEach(dir => createDir(path.join(root_dir ,dir)))
+    config[argv.template].files.forEach(fname => createFile(root_dir, config[argv.template].template_root, fname))
 }
 
 main()
