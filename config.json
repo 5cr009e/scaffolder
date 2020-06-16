@@ -11,8 +11,8 @@
     "cli": {
         "template_root": "templates/cli",
         "description": "cli template with main.js",
-        "dirs": ["js"],
+        "dirs": ["src"],
         "files":["main.js", 
-                 "js/lib.js"]
+                 "src/lib.js"]
     }
 }
